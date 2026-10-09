@@ -10,7 +10,6 @@ import { MusicPlayer } from './components/MusicPlayer';
 import { Navigation } from './components/Navigation';
 import { OpeningExperience } from './components/OpeningExperience';
 import { ScratchReveal } from './components/ScratchReveal';
-import { ShareButton } from './components/ShareButton';
 import { StoryTimeline } from './components/StoryTimeline';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
 import { VenueSection } from './components/VenueSection';
@@ -41,10 +40,7 @@ function Experience() {
       <Footer />
 
       {/* floating controls */}
-      <div className="tone-dark pointer-events-none fixed bottom-0 right-0 z-50 flex flex-col gap-3 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] sm:px-6">
-        <div className="pointer-events-auto">
-          <ShareButton />
-        </div>
+      <div className="tone-dark pointer-events-none fixed bottom-0 right-0 z-50 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] sm:px-6">
         <div className="pointer-events-auto">
           <MusicPlayer />
         </div>

@@ -1,11 +1,9 @@
-import { useMemo, useRef } from 'react';
 import { m, useReducedMotion, useScroll, useSpring } from 'motion/react';
+import { useMemo, useRef } from 'react';
 import { useInvitation } from '../context/InvitationContext';
-import { Container, Section, SectionHeading } from './ui/Section';
-import { Reveal } from './ui/Reveal';
 import { EventCard } from './EventCard';
-import { CalendarButton } from './CalendarButton';
 import { Particles } from './ui/Particles';
+import { Container, Section, SectionHeading } from './ui/Section';
 
 export function EventTimeline() {
   const { inv } = useInvitation();
@@ -19,7 +17,6 @@ export function EventTimeline() {
     const dates = Array.from(new Set(events.map((e) => e.date)));
     return (date: string) => dates.indexOf(date) + 1;
   }, [events]);
-  const calendarEvents = events.filter((e) => e.calendarEnabled);
 
   return (
     <Section id="events" tone="dark" pattern labelledBy="events-title" className="grain">
@@ -47,13 +44,6 @@ export function EventTimeline() {
             ))}
           </ol>
         </div>
-
-        {calendarEvents.length > 1 && (
-          <Reveal className="mt-16 flex flex-col items-center gap-4 text-center">
-            <p className="font-display text-xl italic text-fg-soft">Want every celebration in one go?</p>
-            <CalendarButton event={calendarEvents} label="Add all to Calendar" variant="solid" />
-          </Reveal>
-        )}
       </Container>
     </Section>
   );

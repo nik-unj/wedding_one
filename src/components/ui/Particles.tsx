@@ -68,7 +68,7 @@ export function Particles({ count = 46, className, colorVar = '--gold-light' }: 
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      dpr = Math.min(window.devicePixelRatio || 1, rect.width < 768 ? 1.5 : 2);
       w = rect.width;
       h = rect.height;
       canvas.width = Math.round(w * dpr);
@@ -118,5 +118,11 @@ export function Particles({ count = 46, className, colorVar = '--gold-light' }: 
     };
   }, [count, reduce, colorVar, theme]);
 
-  return <canvas ref={ref} className={cn('pointer-events-none absolute inset-0 h-full w-full', className)} aria-hidden="true" />;
+  // The canvas sticks to the viewport instead of spanning the whole section: a canvas thousands of
+  // pixels tall exhausts mobile GPU memory and makes the browser skip painting the rest of the page.
+  return (
+    <div className={cn('pointer-events-none absolute inset-0', className)} aria-hidden="true">
+      <canvas ref={ref} className="sticky top-0 h-full max-h-lvh w-full" />
+    </div>
+  );
 }

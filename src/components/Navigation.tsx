@@ -10,7 +10,7 @@ const links = [
   { id: 'events', label: 'Celebrations' },
   { id: 'gallery', label: 'Gallery' },
   { id: 'venue', label: 'Venue' },
-  { id: 'rsvp', label: 'RSVP' },
+  { id: 'blessings', label: 'Blessings' },
 ] as const;
 
 export function Navigation() {

@@ -11,7 +11,7 @@ export interface ImageAsset {
 }
 
 export interface Person {
-  /** Display name, e.g. "Anushka" */
+  /** Display name, e.g. "Kavita" */
   name: string;
   fullName: string;
   role: string; // "The Bride" | "The Groom"

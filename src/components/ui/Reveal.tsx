@@ -6,6 +6,11 @@ import { Img } from './Img';
 
 export const EASE = [0.22, 1, 0.36, 1] as const;
 
+/** Phones/tablets: guests flick-scroll, so reveals start before content enters and finish quicker. */
+export const COMPACT =
+  typeof window !== 'undefined' && window.matchMedia('(max-width: 767px), (pointer: coarse)').matches;
+export const VIEWPORT_MARGIN = COMPACT ? '0px 0px 25% 0px' : '0px 0px -6% 0px';
+
 type Kind = 'up' | 'fade' | 'scale' | 'left' | 'right';
 
 const variants = (kind: Kind, distance: number): Variants => {
@@ -59,11 +64,11 @@ export function Reveal({
   return (
     <Tag
       className={className}
-      variants={variants(kind, distance)}
+      variants={variants(kind, COMPACT ? Math.min(distance, 18) : distance)}
       initial="hidden"
       whileInView="shown"
-      viewport={{ once: true, amount, margin: '0px 0px -6% 0px' }}
-      transition={{ duration, delay, ease: EASE }}
+      viewport={{ once: true, amount: COMPACT ? 0 : amount, margin: VIEWPORT_MARGIN }}
+      transition={COMPACT ? { duration: Math.min(duration, 0.7), delay: delay * 0.4, ease: EASE } : { duration, delay, ease: EASE }}
     >
       {children}
     </Tag>
@@ -93,21 +98,22 @@ export function RevealImage({ asset, sizes, className, imgClassName, delay = 0, 
   // Observe an un-clipped wrapper: browsers report a fully clip-path'd element as
   // non-intersecting, which would stop the mask from ever opening.
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.15 });
+  const inView = useInView(ref, { once: true, amount: COMPACT ? 0 : 0.15, margin: COMPACT ? VIEWPORT_MARGIN : undefined });
+  const wait = inView ? (COMPACT ? delay * 0.4 : delay) : 0;
   return (
     <div ref={ref} className={cn('overflow-hidden', className)}>
       <m.div
         className="h-full w-full overflow-hidden"
         initial={false}
         animate={{ clipPath: inView ? 'inset(0% 0% 0% 0%)' : clipFrom[from] }}
-        transition={{ duration: inView ? 1.6 : 0, delay: inView ? delay : 0, ease: [0.76, 0, 0.24, 1] }}
+        transition={{ duration: inView ? (COMPACT ? 0.8 : 1.6) : 0, delay: wait, ease: [0.76, 0, 0.24, 1] }}
         style={{ clipPath: clipFrom[from] }}
       >
         <m.div
           className="h-full w-full"
           initial={false}
-          animate={{ scale: inView ? 1 : 1.28 }}
-          transition={{ duration: inView ? 2.2 : 0, delay: inView ? delay : 0, ease: EASE }}
+          animate={{ scale: inView ? 1 : COMPACT ? 1.12 : 1.28 }}
+          transition={{ duration: inView ? (COMPACT ? 1.1 : 2.2) : 0, delay: wait, ease: EASE }}
         >
           <Img asset={asset} sizes={sizes} priority={priority} className={cn('h-full w-full object-cover', imgClassName)} />
         </m.div>

@@ -579,6 +579,20 @@
   }
 }
 
+/* ──────────────────────────────  PHONES / TOUCH  ──────────────────────────────
+   Full-height blend overlays and backdrop blurs on fixed UI force a full repaint
+   on every scroll frame; on mobile GPUs that shows up as blank, unpainted content. */
+@media (max-width: 767px), (pointer: coarse) {
+  .grain::after {
+    display: none;
+  }
+  .glass {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: color-mix(in srgb, var(--deep-2) 88%, transparent);
+  }
+}
+
 /* scrollbar polish (desktop) */
 @media (hover: hover) and (pointer: fine) {
   ::-webkit-scrollbar {

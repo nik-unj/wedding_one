@@ -30,34 +30,34 @@ const mapsSearch = (q: string) =>
  * ─────────────────────────────────────────────────────────────────────────────
  */
 export const invitation: Invitation = {
-  slug: 'anushka-jayvardhan',
+  slug: 'kavita-yash',
   couple: {
-    displayName: 'Anushka & Jayvardhan',
-    monogram: 'A & J',
-    hashtag: '#AnushkaWedsJayvardhan',
+    displayName: 'Kavita & Yash',
+    monogram: 'K & Y',
+    hashtag: '#KavitaWedsYash',
   },
 
   bride: {
-    name: 'Anushka',
-    fullName: 'Anushka Mehta',
+    name: 'Kavita',
+    fullName: 'Kavita Mehta',
     role: 'The Bride',
     relation: 'D/o.',
     mother: 'Mrs. Meera Mehta',
     father: 'Mr. Rajesh Mehta',
     city: 'Jaipur, Rajasthan',
     tagline: 'A dreamer with a pen, a passion for old films, and a laugh you can hear from the next room.',
-    photo: img('bride', 864, 1152, 'Portrait of Anushka in a red and gold bridal lehenga'),
+    photo: img('bride', 864, 1152, 'Portrait of Kavita in a red and gold bridal lehenga'),
   },
   groom: {
-    name: 'Jayvardhan',
-    fullName: 'Jayvardhan Singh Rathore',
+    name: 'Yash',
+    fullName: 'Yash Singh Rathore',
     role: 'The Groom',
     relation: 'S/o.',
     mother: 'Mrs. Sunita Rathore',
     father: 'Mr. Vikram Singh Rathore',
     city: 'Mumbai, Maharashtra',
     tagline: 'Quietly funny, endlessly patient, and the kind of person who remembers every small thing.',
-    photo: img('groom', 864, 1152, 'Portrait of Jayvardhan in an ivory and gold sherwani'),
+    photo: img('groom', 864, 1152, 'Portrait of Yash in an ivory and gold sherwani'),
   },
 
   families: {
@@ -97,8 +97,8 @@ export const invitation: Invitation = {
   hero: {
     blessing: 'श्री गणेशाय नमः',
     blessingEn: 'With the blessings of Lord Ganesha',
-    imageWide: img('hero-wide', 1280, 720, 'Anushka and Jayvardhan walking hand in hand through a palace courtyard at golden hour'),
-    imageTall: img('hero-tall', 720, 1280, 'Anushka and Jayvardhan standing under a sandstone archway at sunset', { sm: false }),
+    imageWide: img('hero-wide', 1280, 720, 'Kavita and Yash walking hand in hand through a palace courtyard at golden hour'),
+    imageTall: img('hero-tall', 720, 1280, 'Kavita and Yash standing under a sandstone archway at sunset', { sm: false }),
     city: 'Udaipur, Rajasthan',
     ogImage: '/images/og-image.jpg',
   },
@@ -111,8 +111,8 @@ export const invitation: Invitation = {
         id: 'meeting',
         title: 'The Meeting',
         kicker: 'July, 2021 · Jaipur',
-        text: 'A rainy afternoon in a tiny café in Jaipur. Anushka had stepped in to escape the downpour; Jayvardhan to finish a deadline. One shared table, two cups of masala chai, and a conversation that forgot how to end.',
-        image: img('story-1', 1152, 864, 'Anushka and Jayvardhan laughing over cups of chai in a sunlit café'),
+        text: 'A rainy afternoon in a tiny café in Jaipur. Kavita had stepped in to escape the downpour; Yash to finish a deadline. One shared table, two cups of masala chai, and a conversation that forgot how to end.',
+        image: img('story-1', 1152, 864, 'Kavita and Yash laughing over cups of chai in a sunlit café'),
       },
       {
         id: 'knowing',
@@ -283,13 +283,13 @@ export const invitation: Invitation = {
     {
       id: 'seed-2',
       name: 'Aarav',
-      message: 'Didi, I have never seen you smile the way you do when Jay calls. Can’t wait to dance my heart out at your sangeet!',
+      message: 'Didi, I have never seen you smile the way you do when Yash calls. Can’t wait to dance my heart out at your sangeet!',
       createdAt: 2,
     },
     {
       id: 'seed-3',
       name: 'Riya Rathore',
-      message: 'Welcome to the family, Anushka — we’ve been waiting for you for years. Bhai, you chose very, very well.',
+      message: 'Welcome to the family, Kavita — we’ve been waiting for you for years. Bhai, you chose very, very well.',
       createdAt: 3,
     },
     {

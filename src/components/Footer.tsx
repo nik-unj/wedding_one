@@ -1,23 +1,12 @@
 import { m } from 'motion/react';
-import { ArrowUp, AtSign, Globe, Mail, MessageCircle, Phone, Play } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import { useInvitation } from '../context/InvitationContext';
-import type { SocialLink } from '../types';
 import { Divider, Mandala } from './ui/Ornaments';
 import { Particles } from './ui/Particles';
 import { Reveal, EASE } from './ui/Reveal';
 import { TextReveal } from './ui/TextReveal';
 import { HeroPicture } from './ui/HeroPicture';
 import { longDate } from '../lib/dates';
-
-const icons: Record<SocialLink['kind'], typeof Mail> = {
-  instagram: AtSign,
-  facebook: Globe,
-  youtube: Play,
-  website: Globe,
-  email: Mail,
-  phone: Phone,
-  whatsapp: MessageCircle,
-};
 
 export function Footer() {
   const { inv } = useInvitation();
@@ -64,30 +53,7 @@ export function Footer() {
           {inv.couple.hashtag && <p className="mt-5 text-sm tracking-[0.2em] text-gold-light">{inv.couple.hashtag}</p>}
         </Reveal>
 
-        {inv.socialLinks.length > 0 && (
-          <Reveal delay={0.6} className="mt-10">
-            <ul className="flex items-center justify-center gap-4" aria-label="Get in touch">
-              {inv.socialLinks.map((s) => {
-                const Icon = icons[s.kind];
-                return (
-                  <li key={s.label}>
-                    <a
-                      href={s.href}
-                      target={s.href.startsWith('http') ? '_blank' : undefined}
-                      rel="noopener noreferrer"
-                      aria-label={s.label}
-                      className="grid h-12 w-12 place-items-center rounded-full border border-gold/40 text-on-deep transition hover:-translate-y-0.5 hover:border-gold-light hover:text-gold-light"
-                    >
-                      <Icon size={18} strokeWidth={1.4} aria-hidden="true" />
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </Reveal>
-        )}
-
-        <Reveal delay={0.7} className="mt-14">
+        <Reveal delay={0.6} className="mt-12">
           <button
             type="button"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

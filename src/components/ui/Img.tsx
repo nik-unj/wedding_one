@@ -54,7 +54,7 @@ export function Img({ asset, sizes = '100vw', priority, className, style, alt }:
       draggable={false}
       onLoad={() => setLoaded(true)}
       onError={() => setFailed(true)}
-      className={cn('transition-opacity duration-[1400ms] ease-out', loaded ? 'opacity-100' : 'opacity-0', className)}
+      className={cn('transition-opacity duration-500 ease-out md:duration-[1400ms]', loaded ? 'opacity-100' : 'opacity-0', className)}
       style={style}
     />
   );

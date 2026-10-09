@@ -1,6 +1,6 @@
 import { m, type Variants } from 'motion/react';
 import { cn } from '../../lib/cn';
-import { EASE } from './Reveal';
+import { COMPACT, EASE, VIEWPORT_MARGIN } from './Reveal';
 
 interface Props {
   text: string;
@@ -48,7 +48,7 @@ export function TextReveal({
       initial="hidden"
       {...(controlled
         ? { animate: show ? 'shown' : 'hidden' }
-        : { whileInView: 'shown', viewport: { once: true, amount: 0.6 } })}
+        : { whileInView: 'shown', viewport: COMPACT ? { once: true, margin: VIEWPORT_MARGIN } : { once: true, amount: 0.6 } })}
       transition={{ staggerChildren: step, delayChildren: delay }}
     >
       <span className="sr-only">{text}</span>
@@ -59,7 +59,7 @@ export function TextReveal({
               aria-hidden="true"
               className={cn('inline-block overflow-hidden pb-[0.12em] align-bottom', i < tokens.length - 1 && 'mr-[0.26em]')}
             >
-              <m.span className={cn('inline-block', tokenClassName)} variants={wordV} transition={{ duration: 1.2, ease: EASE }}>
+              <m.span className={cn('inline-block', tokenClassName)} variants={wordV} transition={{ duration: COMPACT ? 0.7 : 1.2, ease: EASE }}>
                 {t}
               </m.span>
             </span>

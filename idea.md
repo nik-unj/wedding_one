@@ -750,10 +750,10 @@ It should feel like the guest is scrolling through a beautifully designed weddin
 Use realistic placeholder Indian wedding data.
 
 Bride:
-Anushka
+Kavita
 
 Groom:
-Jayvardhan
+Yash
 
 Wedding date:
 25 November 2026
